@@ -1,18 +1,10 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
 import Head from "next/head";
 
-import Foot from "@/components/Foot";
-import Nav from "@/components/Nav";
-
-const jakarta = Plus_Jakarta_Sans({
-  display: "swap",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-});
+import Button from "@/components/Button";
+import Styles from "@/styles/pages/home.module.scss";
 
 export default function Home() {
+  const onClick = () => {};
   return (
     <>
       <Head>
@@ -28,12 +20,27 @@ export default function Home() {
         />
         <title>Frontend Mentor | Skilled e-learning landing page</title>
       </Head>
-      <header>
-        <Nav />
-      </header>
-      <main className={jakarta.variable}></main>
-      <footer>
-        <Foot />
+      <header className={Styles.root}></header>
+      <main className={Styles.root}></main>
+      <footer className={Styles.root}>
+        <div>
+          <ul>
+            <li>
+              <h1>Skilled</h1>
+            </li>
+            <li>
+              <Button
+                color="tertiary"
+                content="Get Start"
+                height={4.8}
+                typography="tertiary"
+                width={14}
+                onClick={onClick}
+                onKeyDown={onClick}
+              />
+            </li>
+          </ul>
+        </div>
       </footer>
     </>
   );

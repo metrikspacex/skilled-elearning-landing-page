@@ -1,5 +1,4 @@
-@use "layouts" as layout;
-@use "media" as media;
+@use "media" as *;
 
 *,
 *::after,
@@ -8,36 +7,80 @@
 }
 
 * {
+  font: inherit;
   padding: 0;
   margin: 0;
 }
 
+// Hate me for this, but I like to define exact elements
 html {
-  height: 100%;
-  z-index: 0;
+  font-size: var(--font-size);
 
   & > body {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     min-height: 100dvh;
     min-height: 100vh;
+    z-index: 0;
 
     & > div#__next {
+      background-color: white;
       display: grid;
-      padding-bottom: 0;
-      padding-left: 16px;
-      padding-right: 16px;
-      padding-top: 16px;
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
       z-index: 0;
 
-      @include media.bp(mobile) {
-        @include layout.mobile();
-      }
+      /** 
+       * Ignore this, see below.
+       * Debatable feature
+       *
+       * This or padding grow with fixed items -> wrapped with a div on all
+       * elements
+       */
+      // @include media(mobile) {
+      /*   Basically fixes the container at 375 as grows */
+      //   grid-template-columns: repeat(1, minmax(0, 375px));
+      // }
+      // @include media(tablet) {
+      //   grid-template-columns: repeat(1, minmax(0, 768px));
+      // }
+      // @include media(desktop) {
+      //   grid-template-columns: repeat(1, minmax(0, 1440px));
+      // }
+      & > div#__target {
 
-      @include media.bp(tablet) {
-        @include layout.tablet();
-      }
+        /**
+         * Explicitly designing for 375 >= width <= 1440
+         * Anything under 375 will be handled by a resize script, which
+         * basically takes the font size of x1 to x2 and width size of y1 and y2
+         * computing a slope and intercept from these values and scaling a css
+         * variable --font-size to give a basic interpolate of everthing defined
+         * in between the given ranges. Note everything will be defined in rem
+         * as it is scales of a `font-size`. Everything below is defined exact
+         * and split into the three ranges.
+         */
+        // Target Device (375, 667)
+        @include media(mobile) {
+          background-color: black;
+          display: grid;
+          // Flexible width with block defined components
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(2, max-content) 120px;
+          grid-column: 1;
+          grid-row: 1;
+          z-index: 0;
+        }
 
-      @include media.bp(desktop) {
-        @include layout.desktop();
+        // Target Device (768, 1024)
+        @include media(tablet) {}
+
+        // Target Device (1440, 1024)
+        @include media(desktop) {}
       }
     }
   }
