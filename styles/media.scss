@@ -1,0 +1,19 @@
+@mixin bp($device) {
+  @if $device ==mobile {
+    @media (width <=667px) {
+      @content;
+    }
+  }
+
+  @else if $device ==tablet {
+    @media (667px <=width <=1024px) {
+      @content;
+    }
+  }
+
+  @else if $device ==desktop {
+    @media (1024px <=width <=1440px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@mixin gradient($variant) {
+  @if $variant==body {
+    background: linear-gradient(180deg,
+        #FFFFFF 0%,
+        #F0F1FF 100%);
+  }
+
+  @if $variant==primary {
+    background: linear-gradient(180deg,
+        #FF6F48 0%,
+        #F02AA6 100%);
+  }
+
+  @else if $variant==secondary {
+    background: linear-gradient(180deg,
+        #4851FF -54.32%,
+        #F02AA6 100%);
+  }
+}
+
+@mixin buttons($variant) {
+  @if $variant==primary {
+    button {
+      background: #13183F;
+      border-radius: 28px;
+
+      &:hover {
+        background: #666CA3;
+        border-radius: 28px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @if $variant==secondary {
+    button {
+      @apply gradient(primary);
+      border-radius: 31.5px;
+
+      &:hover {
+        background: linear-gradient(0deg,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)),
+          linear-gradient(180deg,
+            #FF6F48 0%,
+            #F02AA6 100%);
+        border-radius: 31.5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @else if $variant==tertiary {
+    button {
+      @apply gradient(secondary);
+      border-radius: 28px;
+
+      &:hover {
+        background: linear-gradient(0deg,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)),
+          linear-gradient(180deg,
+            #4851FF -54.32%,
+            #F02AA6 100%);
+        border-radius: 28px;
+        cursor: pointer;
+      }
+    }
+  }
+}

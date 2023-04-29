@@ -1,0 +1,44 @@
+@use "layouts" as layout;
+@use "media" as media;
+
+*,
+*::after,
+*::before {
+  box-sizing: border;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  z-index: 0;
+
+  & > body {
+    min-height: 100dvh;
+    min-height: 100vh;
+
+    & > div#__next {
+      display: grid;
+      padding-bottom: 0;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 16px;
+      z-index: 0;
+
+      @include media.bp(mobile) {
+        @include layout.mobile();
+      }
+
+      @include media.bp(tablet) {
+        @include layout.tablet();
+      }
+
+      @include media.bp(desktop) {
+        @include layout.desktop();
+      }
+    }
+  }
+}
