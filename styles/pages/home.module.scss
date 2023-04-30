@@ -2,17 +2,52 @@
 
 header.root {
   @include media(mobile) {
-    background-color: red;
+    align-content: center;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8rem repeat(3, max-content);
     grid-column: 1;
     grid-row: 1;
+    justify-content: center;
+    z-index: 1;
   }
 }
 
 main.root {
   @include media(mobile) {
-    background-color: green;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
+    display: grid;
     grid-column: 1;
-    grid-row: 1 / 2;
+    grid-row: 2;
+    grid-template-columns: 1fr;
+    grid-template-rows: 12rem repeat(5, max-content);
+    place-items: center;
+    padding: 0 1.6rem;
+    z-index: 0;
+
+    & > div.heading {
+      align-items: center;
+      background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+      border-radius: 1rem;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+
+      & > h1 {
+        color: #FFFFFF;
+        font-family: var(--ff);
+        font-size: 2.4rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 3.2rem;
+        height: 6.4rem;
+        width: 28.6rem;
+      }
+    }
   }
 }
 
@@ -24,63 +59,6 @@ footer.root {
     grid-column: 1;
     grid-row: 3;
     justify-content: center;
-
-    & > div {
-      height: 4.8rem;
-      width: 34.3rem;
-      grid-column: 1;
-      grid-row: 1;
-
-      & > ul {
-        align-items: center;
-        display: grid;
-        grid-template-columns: repeat(2, max-content);
-        grid-template-rows: 1fr;
-        height: 100%;
-        justify-content: space-between;
-        list-style: none;
-
-        & > li {
-          &:nth-of-type(1) {
-            grid-column: 1;
-            grid-row: 1;
-            height: 3.5rem;
-
-            & > h1 {
-              color: #FFFFFF;
-              font-family: var(--ff);
-              font-size: 2.8rem;
-              font-style: normal;
-              font-weight: 800;
-              line-height: 3.5rem;
-            }
-          }
-
-          &:nth-of-type(2) {
-            align-items: center;
-            display: flex;
-            grid-column: 2;
-            grid-row: 1;
-            justify-content: center;
-            // & > button {
-            //   background: linear-gradient(180deg,
-            //       #4851FF 0%,
-            //       #F02AA6 100%);
-            //   border-radius: 2.8rem;
-            //   border: 0;
-            //   color: #FFFFFF;
-            //   font-family: 'Plus Jakarta Sans';
-            //   font-size: 16px;
-            //   font-style: normal;
-            //   font-weight: 700;
-            //   height: 4.8rem;
-            //   line-height: 28px;
-            //   outline-color: transparent;
-            //   width: 14rem;
-            // }
-          }
-        }
-      }
-    }
+    z-index: 1;
   }
 }

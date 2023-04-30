@@ -4,6 +4,7 @@ import Styles from "@/styles/components/Button.module.scss";
 import type { ButtonProps } from "@/types/Button";
 
 export default function Button({
+  className,
   color,
   content,
   height,
@@ -15,6 +16,7 @@ export default function Button({
   return (
     <button
       className={clsx(
+        className,
         { [Styles.primaryColor]: color === "primary" },
         { [Styles.secondaryColor]: color === "secondary" },
         { [Styles.tertiaryColor]: color === "tertiary" },

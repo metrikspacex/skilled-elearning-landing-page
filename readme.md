@@ -45,7 +45,9 @@ Users should be able to:
 
 ### Learned
 
--
+- Finally understand the necessity of utility classes rather than passing
+  classname props.
+- Learned how to generate common utility classes using sass loops and lists.
 
 ### Useful resources
 

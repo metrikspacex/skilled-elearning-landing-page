@@ -12,6 +12,11 @@
   margin: 0;
 }
 
+:root {
+  //Initial load set to 10px.
+  --font-size: 10px;
+}
+
 // Hate me for this, but I like to define exact elements
 html {
   font-size: var(--font-size);
@@ -66,11 +71,10 @@ html {
          */
         // Target Device (375, 667)
         @include media(mobile) {
-          background-color: black;
           display: grid;
           // Flexible width with block defined components
           grid-template-columns: 1fr;
-          grid-template-rows: repeat(2, max-content) 120px;
+          grid-template-rows: max-content auto 120px;
           grid-column: 1;
           grid-row: 1;
           z-index: 0;
@@ -83,5 +87,91 @@ html {
         @include media(desktop) {}
       }
     }
+  }
+}
+
+/*
+ * Generate utilities margins/padding
+ * From 1rem to 6.8rem we have margins/padding of bottom, left, right, top
+ * classes to be used for changing the spacing of components.
+ *
+ * Note can't use 1.2... Therefore, take values of 10, 12.. divide by 10 and
+ * cast to string with rem.
+ */
+$spacing: (10, 12, 14, 16, 18,
+    20, 22, 24, 26, 28,
+    30, 32, 34, 36, 38,
+    40, 42, 44, 46, 48,
+    50, 52, 54, 56, 58,
+    60, 62, 64, 66, 68,
+    70, 72, 74, 76, 78);
+
+// Looping over the spacing list
+@each $space in $spacing {
+
+  // Margins
+  .mb-#{$space} {
+    margin-bottom: #{($space/10)}rem;
+  }
+
+  .ml-#{$space} {
+    margin-left: #{($space/10)}rem;
+  }
+
+  .mr-#{$space} {
+    margin-right: #{($space/10)}rem;
+  }
+
+  .mt-#{$space} {
+    margin-top: #{($space/10)}rem;
+  }
+
+  .mx-#{$space} {
+    margin-left: #{($space/10)}rem;
+    margin-right: #{($space/10)}rem;
+  }
+
+  .my-#{$space} {
+    margin-bottom: #{($space/10)}rem;
+    margin-top: #{($space/10)}rem;
+  }
+
+  // Paddings
+  .pb-#{$space} {
+    padding-bottom: #{($space/10)}rem;
+  }
+
+  .pl-#{$space} {
+    padding-left: #{($space/10)}rem;
+  }
+
+  .pr-#{$space} {
+    padding-right: #{($space/10)}rem;
+  }
+
+  .pt-#{$space} {
+    padding-top: #{($space/10)}rem;
+  }
+
+  .px-#{$space} {
+    padding-left: #{($space/10)}rem;
+    padding-right: #{($space/10)}rem;
+  }
+
+  .py-#{$space} {
+    padding-bottom: #{($space/10)}rem;
+    padding-top: #{($space/10)}rem;
+  }
+}
+
+/**
+ * Border Radius
+ * Keep the pixels rather than rem.
+ */
+$radii: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+@each $radius in $radii {
+  .br-#{$radius} {
+    border-radius: #{$radius} !important;
   }
 }

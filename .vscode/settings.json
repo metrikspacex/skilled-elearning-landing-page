@@ -1,7 +1,7 @@
 {
   // Editor
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": false,
     "source.fixAll": false,
     "source.organizeImports": false,
     "source.sortImports": false
@@ -37,6 +37,7 @@
   "files.exclude": {
     "**/.git": true,
     ".design": true,
+    ".env": true,
     ".eslintignore": true,
     ".eslintrc": true,
     ".github": true,
@@ -135,7 +136,7 @@
   "css.completion.triggerPropertyValueCompletion": true,
   "css.format.braceStyle": "collapse",
   "css.format.maxPreserveNewLines": 1,
-  "css.format.newlineBetweenRules": true,
+  "css.format.newlineBetweenRules": false,
   "css.format.newlineBetweenSelectors": true,
   "css.format.preserveNewLines": false,
   "css.format.spaceAroundSelectorSeparator": true,
@@ -230,10 +231,10 @@
   "scss.completion.completePropertyWithSemicolon": true,
   "scss.completion.triggerPropertyValueCompletion": true,
   "scss.format.braceStyle": "collapse",
-  "scss.format.maxPreserveNewLines": 1,
+  "scss.format.maxPreserveNewLines": 2,
   "scss.format.newlineBetweenRules": true,
-  "scss.format.newlineBetweenSelectors": true,
-  "scss.format.preserveNewLines": false,
+  "scss.format.newlineBetweenSelectors": false,
+  "scss.format.preserveNewLines": true,
   "scss.format.spaceAroundSelectorSeparator": true,
   "scss.hover.documentation": true,
   "scss.hover.references": true,
@@ -248,7 +249,7 @@
   "scss.lint.idSelector": "ignore",
   "scss.lint.ieHack": "error",
   "scss.lint.importStatement": "ignore",
-  "scss.lint.important": "error",
+  "scss.lint.important": "ignore",
   "scss.lint.propertyIgnoredDueToDisplay": "error",
   "scss.lint.universalSelector": "ignore",
   "scss.lint.unknownAtRules": "ignore",

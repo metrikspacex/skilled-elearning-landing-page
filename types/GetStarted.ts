@@ -1,12 +1,11 @@
 import type { KeyboardEventHandler, MouseEventHandler } from "react";
 
-export type ButtonProps = {
+export type GetStartedProps = {
   className?: string;
   color: "primary" | "secondary" | "tertiary";
   content: string;
-  height: number;
+  heading: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
   typography: "primary" | "secondary" | "tertiary";
-  width: number;
 };

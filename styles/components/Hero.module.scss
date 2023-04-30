@@ -1,0 +1,6 @@
+@use "../media" as *;
+
+picture.root {
+  display: flex;
+  place-content: center;
+}
