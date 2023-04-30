@@ -1,56 +1,64 @@
 @use "../media" as *;
 
 div.root {
-  align-content: center;
-  display: grid;
-  grid-column: 1;
-  grid-row: 1;
-  grid-template-columns: 34.3rem;
-  grid-template-rows: 4.8rem;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-
-  & > ul {
-    align-items: center;
+  @include media(mobile) {
+    align-content: center;
     display: grid;
-    grid-template-columns: repeat(2, max-content);
-    grid-template-rows: 1fr;
     grid-column: 1;
     grid-row: 1;
-    justify-content: space-between;
-    list-style: none;
-    width: 34.3rem;
+    grid-template-columns: 34.3rem;
+    grid-template-rows: 4.8rem;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  & > ul {
+    @include media(mobile) {
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      grid-template-rows: 1fr;
+      grid-column: 1;
+      grid-row: 1;
+      justify-content: space-between;
+      list-style: none;
+      width: 34.3rem;
+    }
 
     & > li {
       &:nth-of-type(1) {
-        grid-column: 1;
-        grid-row: 1;
-        height: 3.5rem;
+        @include media(mobile) {
+          grid-column: 1;
+          grid-row: 1;
+          height: 3.5rem;
 
-        & > h1 {
-          font-family: var(--ff);
-          font-size: 2.8rem;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 3.5rem;
-        }
+          & > h1 {
+            font-family: var(--ff);
+            font-size: 2.8rem;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 3.5rem;
+          }
 
-        & > h1.primaryColor {
-          color: #13183F;
-        }
+          & > h1.primaryColor {
+            color: #13183F;
+          }
 
-        & > h1.tertiaryColor {
-          color: #FFFFFF;
+          & > h1.tertiaryColor {
+            color: #FFFFFF;
+          }
         }
       }
 
       &:nth-of-type(2) {
-        align-items: center;
-        display: flex;
-        grid-column: 2;
-        grid-row: 1;
-        justify-content: center;
+        @include media(mobile) {
+          align-items: center;
+          display: flex;
+          grid-column: 2;
+          grid-row: 1;
+          justify-content: center;
+        }
       }
     }
   }

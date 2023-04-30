@@ -25,8 +25,10 @@ main.root {
     place-items: center;
     padding: 0 1.6rem;
     z-index: 0;
+  }
 
-    & > div.heading {
+  & > div.heading {
+    @include media(mobile) {
       align-items: center;
       background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
       border-radius: 1rem;
@@ -36,8 +38,10 @@ main.root {
       grid-column: 1;
       grid-row: 1;
       width: 100%;
+    }
 
-      & > h1 {
+    & > h1 {
+      @include media(mobile) {
         color: #FFFFFF;
         font-family: var(--ff);
         font-size: 2.4rem;

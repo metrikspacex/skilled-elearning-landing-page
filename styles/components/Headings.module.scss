@@ -1,17 +1,21 @@
 @use "../media" as *;
 
 h1.bm {
+
   /* Body Medium */
-  color: #83869A;
-  font-family: var(--ff);
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2.8rem;
+  @include media(mobile) {
+    color: #83869A;
+    font-family: var(--ff);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.8rem;
+  }
 }
 
 h1.bmb {
-  /* Body Medium */
+
+  /* Body Medium Bold */
   color: #83869A;
   font-family: var(--ff);
   font-size: 1.8rem;
@@ -21,61 +25,79 @@ h1.bmb {
 }
 
 h1.bs {
+
   /* Body Small */
-  color: #83869A;
-  font-family: var(--ff);
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2.8rem;
+  @include media(mobile) {
+    color: #83869A;
+    font-family: var(--ff);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.8rem;
+  }
 }
 
 h1.bsb {
+
   /* Body Small Bold */
-  color: #83869A;
-  font-family: var(--ff);
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.8rem;
+  @include media(mobile) {
+    color: #83869A;
+    font-family: var(--ff);
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+  }
 }
 
 h1.hl {
+
   /* Heading Large */
-  color: #13183F;
-  font-family: var(--ff);
-  font-size: 4.0rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 5.0rem;
+  @include media(mobile) {
+    color: #13183F;
+    font-family: var(--ff);
+    font-size: 4.0rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 5.0rem;
+  }
 }
 
 h1.hm {
+
   /* Heading Medium */
-  color: #13183F;
-  font-family: var(--ff);
-  font-size: 3.2rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 4.0rem;
+  @include media(mobile) {
+    color: #13183F;
+    font-family: var(--ff);
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 4.0rem;
+  }
 }
 
 h1.hs {
+
   /* Heading Small */
-  color: #13183F;
-  font-family: var(--ff);
-  font-size: 2.4rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 3.0rem;
+  @include media(mobile) {
+    color: #13183F;
+    font-family: var(--ff);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 3.0rem;
+  }
 }
 
 h1.hxl {
+
   /* Heading Extra Small */
-  color: #13183F;
-  font-family: var(--ff);
-  font-size: 5.6rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 7.1rem;
+  @include media(mobile) {
+    color: #13183F;
+    font-family: var(--ff);
+    font-size: 5.6rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 7.1rem;
+  }
 }

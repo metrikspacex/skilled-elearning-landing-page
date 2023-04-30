@@ -2,56 +2,66 @@
 
 // Probably a better way than position: absolute everything
 div.root {
-  border-radius: 1rem;
-  box-shadow: 0 2.5rem 5rem rgba(6, 22, 141, 0.0442381);
-  height: 25.9rem;
-  position: relative;
-  width: 100%;
-  margin-bottom: 1.6rem;
+  @include media(mobile) {
+    border-radius: 1rem;
+    box-shadow: 0 2.5rem 5rem rgba(6, 22, 141, 0.0442381);
+    height: 25.9rem;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.6rem;
+  }
 
   & > div {
-    height: 5.6rem;
-    margin-left: 2.8rem;
-    position: absolute;
-    top: 0;
-    translate: 0 -50%;
-    width: 5.6rem;
+    @include media(mobile) {
+      height: 5.6rem;
+      margin-left: 2.8rem;
+      position: absolute;
+      top: 0;
+      translate: 0 -50%;
+      width: 5.6rem;
+    }
   }
 
   & > h1 {
-    color: #13183F;
-    font-family: var(--ff);
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 800;
-    left: 1.6rem;
-    line-height: 2.5rem;
-    position: absolute;
-    top: 5.6rem;
+    @include media(mobile) {
+      color: #13183F;
+      font-family: var(--ff);
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 800;
+      left: 1.6rem;
+      line-height: 2.5rem;
+      position: absolute;
+      top: 5.6rem;
+    }
   }
 
   & > p {
-    color: #83869A;
-    font-family: var(--ff);
-    font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 500;
-    left: 1.6rem;
-    line-height: 2.6rem;
-    position: absolute;
-    right: 2.9rem;
-    top: 9.7rem;
+    @include media(mobile) {
+      color: #83869A;
+      font-family: var(--ff);
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 500;
+      left: 1.6rem;
+      line-height: 2.6rem;
+      position: absolute;
+      right: 2.9rem;
+      top: 9.7rem;
+    }
   }
 
   & > h2 {
-    color: #F74780;
-    font-family: var(--ff);
-    font-size: 1.8rem;
-    font-style: normal;
-    font-weight: 700;
-    left: 1.6rem;
-    line-height: 2.8rem;
-    position: absolute;
-    top: 19.9rem;
+    @include media(mobile) {
+      color: #F74780;
+      font-family: var(--ff);
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 700;
+      left: 1.6rem;
+      line-height: 2.8rem;
+      position: absolute;
+      top: 19.9rem;
+    }
   }
 }

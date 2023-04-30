@@ -1,6 +1,8 @@
 @use "../media" as *;
 
 picture.root {
-  display: flex;
-  place-content: center;
+  @include media(mobile) {
+    display: flex;
+    place-content: center;
+  }
 }
