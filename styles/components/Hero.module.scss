@@ -4,5 +4,7 @@ picture.root {
   @include media(mobile) {
     display: flex;
     place-content: center;
+    grid-column: 1;
+    grid-row: 3;
   }
 }

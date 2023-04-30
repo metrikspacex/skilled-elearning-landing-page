@@ -1,8 +1,7 @@
 @use "../media" as *;
 
+/* Body Medium */
 h1.bm {
-
-  /* Body Medium */
   @include media(mobile) {
     color: #83869A;
     font-family: var(--ff);
@@ -13,33 +12,32 @@ h1.bm {
   }
 }
 
+/* Body Medium Bold */
 h1.bmb {
-
-  /* Body Medium Bold */
-  color: #83869A;
-  font-family: var(--ff);
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.8rem;
+  @include media(mobile) {
+    color: #83869A;
+    font-family: var(--ff);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+  }
 }
 
+/* Body Small */
 h1.bs {
-
-  /* Body Small */
   @include media(mobile) {
     color: #83869A;
     font-family: var(--ff);
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 2.8rem;
+    line-height: 2.6rem;
   }
 }
 
+/* Body Small Bold */
 h1.bsb {
-
-  /* Body Small Bold */
   @include media(mobile) {
     color: #83869A;
     font-family: var(--ff);
@@ -50,9 +48,8 @@ h1.bsb {
   }
 }
 
+/* Heading Large */
 h1.hl {
-
-  /* Heading Large */
   @include media(mobile) {
     color: #13183F;
     font-family: var(--ff);
@@ -63,9 +60,8 @@ h1.hl {
   }
 }
 
+/* Heading Medium */
 h1.hm {
-
-  /* Heading Medium */
   @include media(mobile) {
     color: #13183F;
     font-family: var(--ff);
@@ -76,9 +72,8 @@ h1.hm {
   }
 }
 
+/* Heading Small */
 h1.hs {
-
-  /* Heading Small */
   @include media(mobile) {
     color: #13183F;
     font-family: var(--ff);
@@ -89,9 +84,8 @@ h1.hs {
   }
 }
 
+/* Heading Extra Small */
 h1.hxl {
-
-  /* Heading Extra Small */
   @include media(mobile) {
     color: #13183F;
     font-family: var(--ff);

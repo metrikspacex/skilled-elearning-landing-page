@@ -19,7 +19,8 @@
 
 // Hate me for this, but I like to define exact elements
 html {
-  font-size: var(--font-size);
+  // At the end change this to var(--font-size) for interpolatations
+  font-size: 10px;
 
   & > body {
     display: grid;

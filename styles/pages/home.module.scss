@@ -2,15 +2,26 @@
 
 header.root {
   @include media(mobile) {
-    align-content: center;
     background-color: transparent;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 8rem repeat(3, max-content);
+    grid-template-rows: 120px 285px max-content;
     grid-column: 1;
     grid-row: 1;
-    justify-content: center;
     z-index: 1;
+  }
+
+  & > div.gridA {
+    @include media(mobile) {
+      align-content: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, max-content);
+      grid-column: 1;
+      grid-row: 2;
+      justify-content: center;
+      z-index: 1;
+      height: 100%;
+    }
   }
 }
 
@@ -51,6 +62,16 @@ main.root {
         height: 6.4rem;
         width: 28.6rem;
       }
+    }
+  }
+
+  & > div.gridB {
+    @include media(mobile) {
+      display: grid;
+      grid-auto-rows: 28.3rem;
+      grid-template-columns: 34.3rem;
+      margin-bottom: 8rem;
+      row-gap: 1.6rem;
     }
   }
 }

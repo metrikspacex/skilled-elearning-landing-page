@@ -34,24 +34,26 @@ export default function Home({ content }: { content: ContentType }) {
           heading="skilled"
           typography="primary"
         />
-        <Headings
-          className={clsx("mt-22 mx-16")}
-          text="Maximize skill, minimize budget"
-          typography="HL"
-        />
-        <Headings
-          className={clsx("mt-26 mx-16")}
-          text="Our moden courses across a range of in-demand skills will give you the knowledge you need to live the life you want"
-          typography="BS"
-        />
-        <Button
-          className={clsx("ml-16 mt-24")}
-          color="secondary"
-          content="Get Started"
-          height={5.6}
-          typography="secondary"
-          width={16.7}
-        />
+        <div className={Styles.gridA}>
+          <Headings
+            className={clsx("mx-16")}
+            text="Maximize skill, minimize budget"
+            typography="HL"
+          />
+          <Headings
+            className={clsx("mt-26 mx-16")}
+            text="Our moden courses across a range of in-demand skills will give you the knowledge you need to live the life you want"
+            typography="BS"
+          />
+          <Button
+            className={clsx("ml-16 mt-24")}
+            color="secondary"
+            content="Get Started"
+            height={5.6}
+            typography="secondary"
+            width={16.7}
+          />
+        </div>
         <Hero
           alt="HeroImage"
           className={clsx("mb-66 mx-24 my-46")}
@@ -64,14 +66,16 @@ export default function Home({ content }: { content: ContentType }) {
         <div className={clsx(Styles.heading, "mx-16")}>
           <h1>Check out our most popular courses!</h1>
         </div>
-        {content.map((item) => (
-          <Card
-            className={clsx("mt-40")}
-            heading={item.heading}
-            key={item.heading}
-            paragraph={item.paragraph}
-          />
-        ))}
+        <div className={clsx(Styles.gridB)}>
+          {content.map((item) => (
+            <Card
+              className={clsx("mt-40")}
+              heading={item.heading}
+              key={item.heading}
+              paragraph={item.paragraph}
+            />
+          ))}
+        </div>
       </main>
       <footer className={Styles.root}>
         <GetStarted

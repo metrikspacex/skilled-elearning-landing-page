@@ -1,3 +1,12 @@
+/**
+ * using this for splitting layouts can be overwhelming. Start mobile first
+ * with every rule wrapped. Comment out the media query after you finished.
+ * write the fixes for tablet, repeat for each query. At the end, extract
+ * rules that are repeated. A: write mixins, B: place at the top out of the
+ * query.
+ *
+ * Or complete a section, adjust for next query.
+ */
 @mixin media($device) {
 
   // Target Device (375, 667)
