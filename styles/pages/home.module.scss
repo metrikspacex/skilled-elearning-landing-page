@@ -27,7 +27,6 @@ main.root {
     grid-row: 2;
     grid-template-columns: 1fr;
     justify-items: center;
-    overflow: hidden;
     padding-bottom: 0;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
@@ -38,6 +37,67 @@ main.root {
 
   @include media(tablet) {
     justify-items: start;
+  }
+
+  @include media(desktop) {
+    justify-items: start;
+  }
+
+  & > div.gridB {
+    @include media(mobile) {
+      align-items: center;
+      column-gap: 1.6rem;
+      display: grid;
+      grid-template-rows: 12rem repeat(5, 28.3rem);
+      grid-template-columns: 34.3rem;
+      justify-items: center;
+      justify-self: center;
+      margin-bottom: 8rem;
+      row-gap: 1.6rem;
+    }
+
+    @include media(tablet) {
+      grid-auto-rows: 28.3rem;
+      grid-template-rows: auto;
+      grid-template-columns: repeat(2, 34.3rem);
+      margin-top: 18.6rem;
+    }
+
+    @include media(desktop) {
+      grid-auto-rows: 28.3rem;
+      grid-template-rows: auto;
+      grid-template-columns: repeat(3, 34.3rem);
+      margin-top: 32.6rem;
+    }
+
+    & > div.heading {
+      @include media(mobile) {
+        align-items: center;
+        background: linear-gradient(180deg,
+            #FF6F48 0%,
+            #F02AA6 100%);
+        border-radius: 1rem;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+      }
+
+      & > h1 {
+        @include media(mobile) {
+          color: #FFFFFF;
+          font-family: var(--ff);
+          font-size: 2.4rem;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 3.2rem;
+          height: 6.4rem;
+          width: 28.6rem;
+        }
+      }
+    }
   }
 }
 

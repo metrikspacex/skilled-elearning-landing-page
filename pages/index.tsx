@@ -4,24 +4,24 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import Card from "@/components/Card";
 import Container from "@/components/Container";
 import HeroCard from "@/components/HeroCard";
 import Nav from "@/components/Nav";
+import HeroImageDesktop from "@/public/assets/image-hero-desktop.png";
 import HeroImageMobile from "@/public/assets/image-hero-mobile.png";
 import HeroImageTablet from "@/public/assets/image-hero-tablet.png";
 import Styles from "@/styles/pages/home.module.scss";
 import type { ContentType } from "@/types/Content";
 
-export default function Home() {
-  const [width, setWidth] = useState<number>(0);
+export default function Home({ content }: { content: ContentType }) {
+  const [width, setWidth] = useState(667);
+  const handleResize = () => setWidth(window.innerWidth);
   useEffect(() => {
-    const handleWidth = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleWidth);
-    handleWidth();
-    return () => window.removeEventListener("resize", handleWidth);
-  });
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <>
       <Head>
@@ -44,8 +44,9 @@ export default function Home() {
       </header>
       <main className={clsx(Styles.root)}>
         <HeroCard />
-        {width <= 768 ? (
+        {width < 768 ? (
           <Image
+            priority
             alt="Hero"
             height={301}
             src={HeroImageMobile}
@@ -53,20 +54,38 @@ export default function Home() {
             width={327}
           />
         ) : (
+          // top -92.13px right -297.71px
+          // top: "-150px",
+          // right: "-280px",
+          // I literally hate this section.
           <Image
+            priority
             alt="Hero"
-            height={640}
-            src={HeroImageTablet}
+            height={width < 1440 ? 640 : 900}
+            src={width < 1440 ? HeroImageTablet : HeroImageDesktop}
             style={{
               backgroundPosition: "top -92.13px right -297.71px",
               backgroundRepeat: "no-repeat",
               position: "absolute",
-              top: "-150px",
-              right: "-280px",
+              top: width < 1440 ? "-150px" : "-300px",
+              right: width < 1440 ? "-280px" : "-300px",
             }}
-            width={640}
+            width={width < 1440 ? 640 : 900}
           />
         )}
+        <div className={clsx(Styles.gridB)}>
+          <div className={clsx(Styles.heading, "mx-16")}>
+            <h1>Check out our most popular courses!</h1>
+          </div>
+          {content.map((item) => (
+            <Card
+              className={clsx("mt-40")}
+              heading={item.heading}
+              key={item.heading}
+              paragraph={item.paragraph}
+            />
+          ))}
+        </div>
       </main>
       <footer className={clsx("bg-very-dark-blue", Styles.root)}>
         <Container className={clsx("h-48")}>

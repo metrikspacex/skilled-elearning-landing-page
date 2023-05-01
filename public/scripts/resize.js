@@ -13,7 +13,6 @@ const changeFontSize = () => {
     "--font-size",
     `${computeFontSize(winWidth)}px`
   );
-  console.log("Called");
 }
 
 changeFontSize();
