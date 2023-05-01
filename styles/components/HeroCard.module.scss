@@ -1,0 +1,76 @@
+@use "../media" as *;
+
+div.root {
+  @include media(mobile) {
+    display: grid;
+    grid-template-columns: 34.3rem;
+    grid-template-rows: repeat(3, max-content);
+    height: 28.5rem;
+    margin-top: 3.8rem;
+    width: 34.3rem;
+  }
+
+  @include media(tablet) {
+    margin-top: 8rem;
+  }
+
+  & > h1 {
+    @include media(mobile) {
+      color: #13183F;
+      font-family: var(--ff);
+      font-size: 4rem;
+      font-style: normal;
+      font-weight: 800;
+      grid-column: 1;
+      grid-row: 1;
+      line-height: 5rem;
+    }
+  }
+
+  & > h2 {
+    @include media(mobile) {
+      color: #83869A;
+      font-family: var(--ff);
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 500;
+      grid-column: 1;
+      grid-row: 2;
+      height: 7.8rem;
+      line-height: 2.6rem;
+      margin-bottom: 2.4rem;
+      margin-top: 2.6rem;
+    }
+  }
+
+  & > button {
+    @include media(mobile) {
+      background: linear-gradient(180deg,
+          #FF6F48 0%,
+          #F02AA6 100%);
+      border-radius: 31.5px;
+      border: 0;
+      color: #FFFFFF;
+      font-family: var(--ff);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      grid-column: 1;
+      grid-row: 3;
+      height: 5.6rem;
+      line-height: 2.6rem;
+      outline-color: transparent;
+      width: 16.7rem;
+
+      &:hover {
+        background: linear-gradient(0deg,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)),
+          linear-gradient(180deg,
+            #FF6F48 0%,
+            #F02AA6 100%);
+        border-radius: 31.5px;
+      }
+    }
+  }
+}

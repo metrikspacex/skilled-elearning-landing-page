@@ -6,26 +6,27 @@
  * query.
  *
  * Or complete a section, adjust for next query.
+ *
+ * I changed this idea. It was that I had mobile with a media query and was
+ * going to define each layout. Rather, let media bleed into other styles.
  */
 @mixin media($device) {
 
   // Target Device (375, 667)
   @if $device ==mobile {
-    @media (width <=667px) {
-      @content;
-    }
+    @content;
   }
 
   // Target Device (768, 1024)
   @else if $device ==tablet {
-    @media (667px <=width <=1024px) {
+    @media (768px <=width <=1440px) {
       @content;
     }
   }
 
   // Target Device (1440, 1024)
   @else if $device ==desktop {
-    @media (1024px <=width) {
+    @media (1440px <=width) {
       @content;
     }
   }

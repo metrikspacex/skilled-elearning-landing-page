@@ -1,0 +1,65 @@
+@use "../media" as *;
+
+nav.root {
+  @include media(mobile) {
+    align-items: center;
+    background-color: transparent;
+    color: #FFFFFF;
+    display: flex;
+    height: 4.8rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  @include media(desktop) {
+    height: 5.6rem;
+  }
+
+  & > h1.navLogo {
+    @include media(mobile) {
+      font-family: var(--ff);
+      font-size: 2.8rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 3.5rem;
+    }
+  }
+
+  & > button.navButton {
+    @include media(mobile) {
+      border-radius: 28px;
+      border: 0;
+      font-family: 'Plus Jakarta Sans';
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 700;
+      height: 100%;
+      line-height: 2.8rem;
+      outline-color: transparent;
+      width: 14rem;
+    }
+  }
+}
+
+// Utilities
+nav.primary {
+  & > h1.navLogo {
+    color: #13183F;
+  }
+
+  & > button.navButton {
+    background: #13183F;
+    color: #FFFFFF;
+  }
+}
+
+nav.secondary {
+  & > h1.navLogo {
+    color: #FFFFFF;
+  }
+
+  & > button.navButton {
+    background: linear-gradient(180deg, #4851FF 0%, #F02AA6 100%);
+    color: #FFFFFF;
+  }
+}

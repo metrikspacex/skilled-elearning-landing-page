@@ -1,17 +1,27 @@
 import { PrismaClient } from "@prisma/client";
 import clsx from "clsx";
 import Head from "next/head";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-import Button from "@/components/Button";
-import Card from "@/components/Card";
-import GetStarted from "@/components/GetStarted";
-import Headings from "@/components/Headings";
-import Hero from "@/components/Hero";
-import HeroImage from "@/public/assets/image-hero-mobile-2x.webp";
+import Container from "@/components/Container";
+import HeroCard from "@/components/HeroCard";
+import Nav from "@/components/Nav";
+import HeroImageMobile from "@/public/assets/image-hero-mobile.png";
+import HeroImageTablet from "@/public/assets/image-hero-tablet.png";
 import Styles from "@/styles/pages/home.module.scss";
 import type { ContentType } from "@/types/Content";
 
-export default function Home({ content }: { content: ContentType }) {
+export default function Home() {
+  const [width, setWidth] = useState<number>(0);
+  useEffect(() => {
+    const handleWidth = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleWidth);
+    handleWidth();
+    return () => window.removeEventListener("resize", handleWidth);
+  });
   return (
     <>
       <Head>
@@ -27,63 +37,41 @@ export default function Home({ content }: { content: ContentType }) {
         />
         <title>Frontend Mentor | Skilled e-learning landing page</title>
       </Head>
-      <header className={Styles.root}>
-        <GetStarted
-          color="primary"
-          content="Get Started"
-          heading="skilled"
-          typography="primary"
-        />
-        <div className={Styles.gridA}>
-          <Headings
-            className={clsx("mx-16")}
-            text="Maximize skill, minimize budget"
-            typography="HL"
-          />
-          <Headings
-            className={clsx("mt-26 mx-16")}
-            text="Our moden courses across a range of in-demand skills will give you the knowledge you need to live the life you want"
-            typography="BS"
-          />
-          <Button
-            className={clsx("ml-16 mt-24")}
-            color="secondary"
-            content="Get Started"
-            height={5.6}
-            typography="secondary"
-            width={16.7}
-          />
-        </div>
-        <Hero
-          alt="HeroImage"
-          className={clsx("mb-66 mx-24 my-46")}
-          height={301}
-          src={HeroImage}
-          width={327}
-        />
+      <header className={clsx(Styles.root)}>
+        <Container className={clsx("h-48")}>
+          <Nav logo="skilled" text="Get Started" variant="primary" />
+        </Container>
       </header>
-      <main className={Styles.root}>
-        <div className={clsx(Styles.heading, "mx-16")}>
-          <h1>Check out our most popular courses!</h1>
-        </div>
-        <div className={clsx(Styles.gridB)}>
-          {content.map((item) => (
-            <Card
-              className={clsx("mt-40")}
-              heading={item.heading}
-              key={item.heading}
-              paragraph={item.paragraph}
-            />
-          ))}
-        </div>
+      <main className={clsx(Styles.root)}>
+        <HeroCard />
+        {width <= 768 ? (
+          <Image
+            alt="Hero"
+            height={301}
+            src={HeroImageMobile}
+            style={{}}
+            width={327}
+          />
+        ) : (
+          <Image
+            alt="Hero"
+            height={640}
+            src={HeroImageTablet}
+            style={{
+              backgroundPosition: "top -92.13px right -297.71px",
+              backgroundRepeat: "no-repeat",
+              position: "absolute",
+              top: "-150px",
+              right: "-280px",
+            }}
+            width={640}
+          />
+        )}
       </main>
-      <footer className={Styles.root}>
-        <GetStarted
-          color="tertiary"
-          content="Get Started"
-          heading="skilled"
-          typography="tertiary"
-        />
+      <footer className={clsx("bg-very-dark-blue", Styles.root)}>
+        <Container className={clsx("h-48")}>
+          <Nav logo="skilled" text="Get Started" variant="secondary" />
+        </Container>
       </footer>
     </>
   );

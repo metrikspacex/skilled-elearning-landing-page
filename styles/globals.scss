@@ -72,28 +72,54 @@ html {
          */
         // Target Device (375, 667)
         @include media(mobile) {
+          align-content: center;
           display: grid;
-          // Flexible width with block defined components
-          grid-template-columns: 1fr;
-          grid-template-rows: max-content auto 120px;
           grid-column: 1;
           grid-row: 1;
+          grid-template-columns: 1fr;
+          grid-template-rows: max-content 1fr max-content;
+          justify-content: center;
           z-index: 0;
         }
 
         // Target Device (768, 1024)
-        @include media(tablet) {}
+        @include media(tablet) {
+          align-content: center;
+          display: grid;
+          grid-column: 1;
+          grid-row: 1;
+          grid-template-columns: 1fr;
+          grid-template-rows: max-content 1fr max-content;
+          justify-content: center;
+          overflow: hidden;
+          position: relative;
+          z-index: 0;
+        }
 
         // Target Device (1440, 1024)
-        @include media(desktop) {}
+        @include media(desktop) {
+          align-content: center;
+          display: grid;
+          grid-column: 1;
+          grid-row: 1;
+          grid-template-columns: 1fr;
+          grid-template-rows: max-content 1fr max-content;
+          justify-content: center;
+          overflow: hidden;
+          position: relative;
+          z-index: 0;
+        }
       }
     }
   }
 }
 
+/**
+ * https://www.sassmeister.com/ - compiler for scss to learn
+ */
 /*
  * Generate utilities margins/padding
- * From 1rem to 6.8rem we have margins/padding of bottom, left, right, top
+ * From 1rem to 10rem we have margins/padding of bottom, left, right, top
  * classes to be used for changing the spacing of components.
  *
  * Note can't use 1.2... Therefore, take values of 10, 12.. divide by 10 and
@@ -105,7 +131,9 @@ $spacing: (10, 12, 14, 16, 18,
     40, 42, 44, 46, 48,
     50, 52, 54, 56, 58,
     60, 62, 64, 66, 68,
-    70, 72, 74, 76, 78);
+    70, 72, 74, 76, 78,
+    80, 82, 84, 86, 88,
+    90, 92, 94, 96, 98, 100);
 
 // Looping over the spacing list
 @each $space in $spacing {
@@ -169,10 +197,281 @@ $spacing: (10, 12, 14, 16, 18,
  * Border Radius
  * Keep the pixels rather than rem.
  */
-$radii: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+$radii: (1, 2, 3, 4,
+    05, 06, 07, 08, 09,
+    10, 12, 14, 16, 18,
+    20, 22, 24, 26, 28,
+    30, 32, 34, 36, 38,
+    40, 42, 44, 46, 48,
+    50, 52, 54, 56, 58,
+    60, 62, 64, 66, 68,
+    70, 72, 74, 76, 78,
+    80, 82, 84, 86, 88,
+    90, 92, 94, 96, 98,
+    100);
 
 @each $radius in $radii {
   .br-#{$radius} {
-    border-radius: #{$radius} !important;
+    border-radius: #{($radius/10)}rem;
   }
+}
+
+/**
+ * Heights / Widths
+ */
+// By the way. For loops exist
+@for $i from 1 through 800 {
+  @if $i % 2==0 {
+    .h-#{$i} {
+      height: #{$i/10}rem;
+    }
+
+    .w-#{$i} {
+      width: #{$i/10}rem;
+    }
+  }
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/**
+ * Grid
+ */
+.grid {
+  display: grid;
+}
+
+@for $i from 1 through 12 {
+  @if $i % 2==0 {
+    .col-pos-#{$i} {
+      grid-column: #{$i};
+    }
+
+    .row-pos-#{$i} {
+      grid-row: #{$i};
+    }
+  }
+}
+
+/**
+ * Backgrounds
+ */
+*.bg-dark-blue {
+  background-color: #666ca3;
+}
+
+*.bg-very-dark-blue {
+  background-color: #13183f;
+}
+
+*.bg-dark-gray-blue {
+  background-color: #83869a;
+}
+
+*.bg-pale-blue {
+  background-color: #ffa7c3;
+}
+
+*.bg-bright-pink {
+  background-color: #f74780;
+}
+
+/**
+ * Colors
+ */
+*.clr-dark-blue {
+  color: #666ca3;
+}
+
+*.clr-very-dark-blue {
+  color: #13183f;
+}
+
+*.clr-dark-gray-blue {
+  color: #83869a;
+}
+
+*.clr-pale-blue {
+  color: #ffa7c3;
+}
+
+*.clr-bright-pink {
+  color: #f74780;
+}
+
+/**
+ * Gradients
+ */
+.grd-alpha {
+  background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+}
+
+.grd-alpha-hover {
+  &:hover {
+    background: linear-gradient(0deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)),
+      linear-gradient(180deg,
+        #FF6F48 0%,
+        #F02AA6 100%);
+  }
+}
+
+.grd-beta {
+  background: linear-gradient(180deg, #4851FF -54.32%, #F02AA6 100%);
+}
+
+.grd-beta-hover {
+  &:hover {
+    background: linear-gradient(0deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)),
+      linear-gradient(180deg,
+        #4851FF -54.32%,
+        #F02AA6 100%);
+  }
+}
+
+.grd-main {
+  background: linear-gradient(180deg,
+      #FFFFFF 0%,
+      #F0F1FF 100%);
+}
+
+/**
+ * Typography
+ */
+.text-bs {
+  color: #83869A;
+  font-family: var(--ff);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+
+.text-bm {
+  color: #83869A;
+  font-family: var(--ff);
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+
+.text-wm {
+  font-weight: 500 !important;
+}
+
+.text-wb {
+  font-weight: 700 !important;
+}
+
+.text-hs {
+  color: #13183F;
+  font-family: var(--ff);
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 3rem;
+}
+
+.text-hm {
+  color: #13183F;
+  font-family: var(--ff);
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 4rem;
+}
+
+.text-hl {
+  color: #13183F;
+  font-family: var(--ff);
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 5rem;
+}
+
+.text-hlx {
+  font-family: var(--ff);
+  color: #13183F;
+  font-size: 5.6rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 7.1rem;
+}
+
+/**
+ * Position
+ */
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+// Generate position utilities
+@for $i from 1 through 1000 {
+  .bottom-#{$i} {
+    bottom: #{$i}px;
+  }
+
+  .left-#{$i} {
+    left: #{$i}px;
+  }
+
+  .right-#{$i} {
+    right: #{$i}px;
+  }
+
+  .top-#{$i} {
+    top: #{$i}px;
+  }
+}
+
+/**
+ * I completely rewrite everything so comments might be off. I changed how I did
+ * things based on this design.
+ */
+// Prototyping - I use random colors for boxes to see behaviour
+.bg-black {
+  background-color: black;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-tomato {
+  background-color: tomato;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-yellow {
+  background-color: black;
 }

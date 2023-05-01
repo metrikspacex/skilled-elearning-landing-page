@@ -2,88 +2,59 @@
 
 header.root {
   @include media(mobile) {
+    align-content: end;
     background-color: transparent;
     display: grid;
-    grid-template-rows: 120px 285px max-content;
     grid-column: 1;
     grid-row: 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 4.8rem;
+    margin-top: 1.6rem;
+    padding-bottom: 0;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    padding-top: 0;
     z-index: 1;
-  }
-
-  & > div.gridA {
-    @include media(mobile) {
-      align-content: center;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, max-content);
-      grid-column: 1;
-      grid-row: 2;
-      justify-content: center;
-      z-index: 1;
-      height: 100%;
-    }
   }
 }
 
 main.root {
   @include media(mobile) {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
     display: grid;
+    grid-auto-rows: max-content;
     grid-column: 1;
     grid-row: 2;
     grid-template-columns: 1fr;
-    grid-template-rows: 12rem repeat(5, max-content);
-    place-items: center;
-    padding: 0 1.6rem;
+    justify-items: center;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    padding-top: 0;
+    position: relative;
     z-index: 0;
   }
 
-  & > div.heading {
-    @include media(mobile) {
-      align-items: center;
-      background: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
-      border-radius: 1rem;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      grid-column: 1;
-      grid-row: 1;
-      width: 100%;
-    }
-
-    & > h1 {
-      @include media(mobile) {
-        color: #FFFFFF;
-        font-family: var(--ff);
-        font-size: 2.4rem;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 3.2rem;
-        height: 6.4rem;
-        width: 28.6rem;
-      }
-    }
-  }
-
-  & > div.gridB {
-    @include media(mobile) {
-      display: grid;
-      grid-auto-rows: 28.3rem;
-      grid-template-columns: 34.3rem;
-      margin-bottom: 8rem;
-      row-gap: 1.6rem;
-    }
+  @include media(tablet) {
+    justify-items: start;
   }
 }
 
 footer.root {
   @include media(mobile) {
     align-items: center;
-    background-color: #13183F;
-    display: flex;
+    display: grid;
     grid-column: 1;
     grid-row: 3;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 12rem;
     justify-content: center;
+    padding-bottom: 0;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    padding-top: 0;
     z-index: 1;
   }
 }

@@ -1,19 +1,7 @@
-import { clsx } from "clsx";
-import Image from "next/image";
-
+/* eslint-disable no-empty-pattern */
 import Styles from "@/styles/components/Hero.module.scss";
-import type { HeroProps } from "@/types/Hero";
+import type { HeroProps } from "@/types/HeroProps";
 
-export default function Hero({
-  alt,
-  className,
-  height,
-  src,
-  width,
-}: HeroProps) {
-  return (
-    <picture className={clsx(className, Styles.root)}>
-      <Image priority alt={alt} height={height} src={src} width={width} />
-    </picture>
-  );
+export default function HeroCard({}: HeroProps) {
+  return <div className={Styles.root}></div>;
 }

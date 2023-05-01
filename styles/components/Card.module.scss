@@ -1,16 +1,13 @@
 @use "../media" as *;
 
-// Probably a better way than position: absolute everything
 div.root {
   @include media(mobile) {
-    background-color: black;
     border-radius: 1rem;
     box-shadow: 0 2.5rem 5rem rgba(6, 22, 141, 0.0442381);
     height: 25.9rem;
     position: relative;
-    width: 100%;
     margin-bottom: 1.6rem;
-    width: 100%;
+    width: 34.3rem;
   }
 
   & > div {
