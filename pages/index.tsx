@@ -17,6 +17,8 @@ import type { ContentType } from "@/types/Content";
 export default function Home({ content }: { content: ContentType }) {
   const [width, setWidth] = useState(667);
   const handleResize = () => setWidth(window.innerWidth);
+  // Bug going from tablet -> mobile in devtools responsive mode
+  // Break points work, just dynamically resizing.
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -44,16 +46,7 @@ export default function Home({ content }: { content: ContentType }) {
       </header>
       <main className={clsx(Styles.root)}>
         <HeroCard />
-        {width < 768 ? (
-          <Image
-            priority
-            alt="Hero"
-            height={301}
-            src={HeroImageMobile}
-            style={{}}
-            width={327}
-          />
-        ) : (
+        {width > 768 ? (
           // top -92.13px right -297.71px
           // top: "-150px",
           // right: "-280px",
@@ -71,6 +64,15 @@ export default function Home({ content }: { content: ContentType }) {
               right: width < 1440 ? "-280px" : "-300px",
             }}
             width={width < 1440 ? 640 : 900}
+          />
+        ) : (
+          <Image
+            priority
+            alt="Hero"
+            height={301}
+            src={HeroImageMobile}
+            style={{}}
+            width={327}
           />
         )}
         <div className={clsx(Styles.gridB)}>

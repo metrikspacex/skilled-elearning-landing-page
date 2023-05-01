@@ -50,6 +50,11 @@ nav.primary {
   & > button.navButton {
     background: #13183F;
     color: #FFFFFF;
+
+    &:hover {
+      background: #666CA3;
+      cursor: pointer;
+    }
   }
 }
 
@@ -61,5 +66,15 @@ nav.secondary {
   & > button.navButton {
     background: linear-gradient(180deg, #4851FF 0%, #F02AA6 100%);
     color: #FFFFFF;
+
+    &:hover {
+      background: linear-gradient(0deg,
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0.5)),
+        linear-gradient(180deg,
+          #4851FF -54.32%,
+          #F02AA6 100%);
+      cursor: pointer;
+    }
   }
 }

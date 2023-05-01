@@ -54,7 +54,7 @@
     "package-lock.json": true,
     "package.json": true,
     "postcss.config.js": true,
-    "prisma": true,
+    "prisma": false,
     "readme.md": true,
     "tsconfig.json": true
   },
